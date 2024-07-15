@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="container">
+
+        
+        
+        
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Invoice No.</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Item</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for inv in invoices %}
+                {% for item in inv.invoice_item.all %}
+                <tr>
+                    <td>{{ inv.invoice_number }}</td>
+                    <td>{{ inv.invoice_customer }}</td>
+                    <td>{{ item }}</td>
+                </tr>
+                {% endfor %}
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endblock content %}
